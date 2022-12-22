@@ -1,0 +1,14 @@
+%% select between bioRxiv style or submission style by commenting either line
+\documentclass[twocolumn]{bioRxiv}
+%\documentclass[submit]{bioRxiv}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{lipsum}
+\usepackage{hyperref}
+
+\begin{document}
+
+\include{01_Article_MainText}
+\include{02_Article_Supplementary}
+%\include{03_Article_SupplementaryVideos}
+
+\end{document}
