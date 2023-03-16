@@ -37,6 +37,15 @@ It should be noted that, contrary to the previous mode, “end-of-travel” even
 \item{Software Control} - The third option allows the user to control the syringe pump system using software alone. This option can be seen as an extension of the previous, second, option but with the protocol being triggered by a software event. This option is currently powered by Bonsai. Bonsai is a visual programming language that specializes in asynchronous data acquisition and has seen a steady growth of adoption from the neuroscience community. Users can change an extensive array of settings (identical to the “triggered control” version) and trigger a protocol on any Bonsai event. As an example, the user can periodically deliver a constant amount of reward \ref{fig:PumpControl}, dynamically change the amount of liquid delivered on every trial, contingent on some behavior/physiological event, or trigger the delivery of water aligned to when the animal enters a given area of an arena.
 Finally, using the Harp protocol allows the user access to hardware timestamped events (e.g. motor stepping) making event alignment possible and effortless.
 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\linewidth]{Figures/Artboard 4.pdf}
+	\caption{\textbf{The current system affords three distinct levels of interface.}\\
+		(\textbf{A}) Low-level hardware control expects the user to fully define the control logic for the stepper motor driver. This can be achieved by implementing such logic in a microcontroller (e.g.: Arduino, right text-box) that defines the state of all input control pins to the stepper-motor driver. It should be noted that this mode does not require the full PCB to be populated, since it does not rely on the Harp core protocol implementation. \textbf{B}) Trigger-based control allows the user to use an external trigger event (via transistor-transistor logic, TTL) to playback a pre-defined delivery protocol. The default protocol values (\textit{e.g.} volume and flow-rate) can be changed using a provided graphical-user interface, or Bonsai. \textbf{C}) Software control allows the user to fully parametrize, and trigger, protocols from a computer host running Bonsai without the need for any external hardware triggers. Sub-millisecond synchronization can be achieved via Harp protocol, or by an configurable digital output event.}
+	\label{fig:PumpControl} 
+\end{figure}
+
 \end{itemize}
 
 \subsection*{Calibration}
