@@ -307,10 +307,12 @@
 \def\footernote#1{\markboth{#1}{#1}}
 
 %% bibliography
-\RequirePackage{chapterbib} % outside of Overleaf, comment this line
-\RequirePackage[sectionbib,authoryear,round]{natbib}
+%\RequirePackage{chapterbib} % outside of Overleaf, comment this line
+%\RequirePackage[sectionbib,authoryear,round]{natbib}
+\usepackage{natbib}
 \setlength{\bibsep}{0.0pt}
-\bibliographystyle{plain}
+\bibliographystyle{unsrtnat}
+%\bibliographystyle{plain}
 \renewcommand{\bibsection}{} % Remove header
 \if@submit
   \renewcommand\bibfont{\normalfont\sffamily\fontsize{9}{10}\selectfont} % set font to be sans serif
