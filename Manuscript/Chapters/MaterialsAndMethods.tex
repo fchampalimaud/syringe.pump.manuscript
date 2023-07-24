@@ -3,22 +3,22 @@ The presented syringe pump system is composed of a mechanical assembly, an elect
 All resources (interface software, firmware, and mechanical designs) are available from \url{https://github.com/harp-tech/device.syringepump}.
 
 \subsubsection*{Mechanical construction}
-The mechanical assembly of the syringe pump was designed to be easily produced and assembled without any particular expertise. All parts necessary for the build are included in the \TODO{BILL OF MATERIALS}. Most parts are readily available off the shelf. Additionally, custom structure parts can be in-house laser-cut and 3D printed, if such resources are available, or sourced from third-party manufacturers, using the provided designs. In addition to the bill of materials \TODO{ref here}, we also documented the assembly process with step-by-step instructions, including photographs, that should be followed to guarantee the best possible assembly of the structure.
+The mechanical assembly of the syringe pump was designed to be easily produced and assembled without any particular expertise. All parts necessary for the build are included in the bill of materials. Most parts are readily available off the shelf. Additionally, custom structure parts can be in-house laser-cut and 3D printed, if such resources are available, or sourced from third-party manufacturers, using the provided designs. In addition to the bill of materials, we also documented the assembly process with step-by-step instructions, including photographs, that should be followed to guarantee the best possible assembly of the structure.
 
-In the provided mechanical configuration, we opted for a NEMA 17 Stepper motor (HT17-275 from Applied Motion) due to its high precision and torque rating. Specifically, the combination of the motor step resolution (1.8 $\deg$/step) together with a 0.8 mm pitch length driving rod leads to a theoretical linear resolution of 4 $\mu m$/step, which can be further increased by using step multipliers of up to 1/16.
+In the provided mechanical configuration, we opted for a NEMA 17 Stepper motor (HT17-275 from Applied Motion) due to its high precision and torque rating. Specifically, the combination of motor step resolution (1.8 $\deg$/step) together with a 0.8 mm pitch length driving rod leads to a theoretical linear resolution of 4 $\mu m$/step, which can be further increased by using step multipliers of up to 1/16.
 Additionally, to characterize the system, we chose two glass syringes models with total volumes compatible with those routinely used for animal experiments (5 and 10 $mL$, 1000 Series Syringes, Hamilton). Taking their cross-section diameter into consideration, the final single-full-step theoretical resolution will be 0.33 and 0.66 $\mu L / step$ for the 5 and 10 $mL$ syringe models, respectively.
 
-It should be noted, however, that the present system should be able to accommodate a large range of other options (be it stepper motors or syringes), with little to no modifications to the suggested design.
+It should be noted, however, that the present system will be able to accommodate a large range of other options (be it stepper motors or syringes), with little to no modifications to the suggested design.
 
 \subsubsection*{Electronics}
 
 The syringe pump is controlled by a custom-made printed circuit board which is comprised of three main blocks: a microprocessor, an interface logic circuitry and, a motor driver \ref{fig:PumpDrawing}.
 
-The microprocessor block consists of an ATxmega microprocessor (ATXMEGA128A4U-AU, Microchip Technology) that implements the Harp \TODO{(harp repo)} protocol, a USB to serial UART interface and a stereo phone jack for temporal synchronization between Harp devices. The Harp protocol allows the syringe pump to be flexibly controlled externally through the USB interface with any host implementing the Harp API (\textit{e.g.:} via Bonsai\citep{Lopes2015} or Python).
+The microprocessor block consists of an ATxmega microprocessor (ATXMEGA128A4U-AU, Microchip Technology) that implements the Harp protocol \url{https://github.com/harp-tech/protocol}, a USB to serial UART interface and a stereo phone jack for temporal synchronization between Harp devices. The Harp protocol allows the syringe pump to be flexibly controlled externally through the USB interface with any host implementing the Harp API (\textit{e.g.:} via Bonsai\citep{Lopes2015} or Python).
 
 The interface circuitry block consists of logic buffers that provide a direct low-level interface with the micro-stepper driver (A4988SETTR-T, Allegro Microsystems) to the user (bypassing the microcontroller block). Moreover, it provides access to the I/O breakout that can be used to trigger protocol delivery with other external, TTL-compatible, devices, supporting input voltages up to 5V. The voltage of the digital outputs can also be configured in the board through a jumper to select between 3.3V and 5V voltage output logic.
 
-The modularity of the board design affords users the option to assemble a simpler lower-cost version, without the microcontroller block, for applications wherein low-level control is sufficient. This significantly cheaper version is assembled using the same PCB schematic with minimal changes to the board components and can be found in an alternative bill of materials provided.
+The modularity of the board design affords users the option to assemble a simpler version without the microcontroller block, for applications wherein low-level control is sufficient. This significantly cheaper version is assembled using the same PCB schematic, with minimal changes to the board components, and can be found in an alternative bill of materials provided.
 
 Despite having been designed for the herein described configuration, the design of the control system (including the Harp API) is compatible with other types of bipolar stepper motors (assuming an output drive capacity of up to 12V and ±1.7A).
 
@@ -42,7 +42,7 @@ Finally, the Harp protocol allows the user access to hardware timestamped events
 	\centering
 	\includegraphics[width=1.0\linewidth]{Figures/Artboard 4.pdf}
 	\caption{\textbf{The current system affords three distinct levels of interface.}\\
-		(\textbf{A}) Low-level hardware control expects the user to fully define the control logic for the stepper motor driver. This can be achieved by implementing such logic in a microcontroller (e.g.: Arduino, right text-box) that defines the state of all input control pins to the stepper-motor driver. It should be noted that this mode does not require the full PCB to be populated, since it does not rely on the Harp core protocol implementation. \textbf{B}) Trigger-based control allows the user to use an external trigger event (via transistor-transistor logic, TTL) to playback a pre-defined delivery protocol. The default protocol values (\textit{e.g.} volume and flow-rate) can be changed using a provided graphical-user interface, or Bonsai. \textbf{C}) Software control allows the user to fully parametrize, and trigger, protocols from a computer host running Bonsai without the need for any external hardware triggers. Sub-millisecond synchronization can be achieved via Harp protocol, or by an configurable digital output event.}
+		(\textbf{A}) Low-level hardware control expects the user to fully define the control logic for the stepper motor driver. This can be achieved by implementing such logic in a microcontroller (\textit{e.g.} Arduino, right textbox) that defines the state of all input control pins to the stepper-motor driver. It should be noted that this mode does not require the full PCB to be populated, since it does not rely on the Harp core protocol implementation. \textbf{B}) Trigger-based control allows the user to use an external trigger event (via transistor-transistor logic, TTL) to playback a pre-defined delivery protocol. The default protocol values (\textit{e.g.} volume and flow-rate) can be modified using a provided graphical-user interface, or Bonsai. \textbf{C}) Software control allows the user to fully parametrize, and trigger, protocols from a computer host running Bonsai without the need for any external hardware triggers. Sub-millisecond synchronization can be achieved via Harp protocol, or by an configurable digital output event.}
 	\label{fig:PumpControl} 
 \end{figure}
 
@@ -84,6 +84,6 @@ We followed the protocol for acute recordings previously described in \cite{Cruz
 Electrophysiological data shown in \ref{fig:Ephys} was minimally processed by applying a Butterworth digital bandpass filter (0.3 to 8kHz).
 
 \subsection{Code and data availability}
-All code and data generated and showed in this manuscript are available from \url{https://github.com/fchampalimaud/syringe.pump.manuscript}.
+All code and data related to the findings in this manuscript are available from \url{https://github.com/fchampalimaud/syringe.pump.manuscript}.
 
 
