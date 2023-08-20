@@ -6,11 +6,28 @@ Given the common reliance of experimental neuroscience on the delivery of small,
 	\centering
 	\includegraphics[width=1.0\linewidth]{Figures/Artboard 1_1.pdf}
 	\caption{\textbf{Tracking small single-bolus events.}\\
-		(\textbf{A}) Schematic of th computer vision algorithm followed to measure small, microlitre range, volumes. Briefly, from top to bottom, we cropped, thresholded, and segmented the area of the capillary filled with liquid. We took its area as a proxy of delivered volume. (See \hyperref[s:methods]{Methods} for further details)  \textbf{B}) Example trace of the measured area in A), as a function of time during one of the experiments. Red vertical dashed lines represent liquid delivery events.}
+		(\textbf{A}) Schematic of the computer vision algorithm followed to measure small, microlitre range, volumes. Briefly, from top to bottom, we cropped, thresholded, and segmented the area of the capillary filled with liquid. We took its area as a proxy of delivered volume. (See \hyperref[s:methods]{Methods} for further details)  \textbf{B}) Example trace of the measured area in A), as a function of time during one of the experiments. Red vertical dashed lines represent liquid delivery events.}
 	\label{fig:PumpProtocol} 
 \end{figure}
 
-Using this approach, we picked four distinct liquid volumes, in a range relevant to rodent behaviour experiments (0.33$\mu L$ - 10$\mu L$ ). We calculated, based on the mechanical specifications of our system and mounted syringe models, the number of steps expected to achieve such volumes. Next, using the videography data, we constructed a "protocol-onset triggered" trace that can be used to quantify single-trial total delivered volume (during the stable phase of the trace), as well as its fluid kinetics \ref{fig:SingleStepCalibration}-a. Our procedure is thus able to provide an estimate of variability across single delivery protocols, on top of revealing a close linear relationship between theoretically predicted and delivered volume. This result held true not only across different setups (\textit{PumpA} \textit{vs.} \textit{PumpB}), but also across mounted syringes with distinct dimensions ($10mL$ \textit{vs.} $5mL$) \ref{fig:SingleStepCalibration}-b,c. Finally, while the spread of single trial delivered volumes grew with theoretically calculated values, its coefficient of variation (standard deviation normalized by the mean) remained relatively stable in all conditions \ref{fig:SingleStepCalibration}-d,e.
+Using this approach, we picked four distinct liquid volumes, in a range relevant to rodent behaviour experiments 
+
+
+(0.33$\mu L$ - 10$\mu L$).
+
+
+
+ We calculated, based on the mechanical specifications of our system and mounted syringe models, the number of steps expected to achieve such volumes. Next, using the videography data, we constructed a "protocol-onset triggered"
+
+
+ trace that can be used to quantify single-trial total delivered volume (during the stable phase of the trace), as well as its fluid kinetics \ref{fig:SingleStepCalibration}-a. Our procedure is thus able to provide an estimate of variability across single delivery protocols, on top of revealing a close linear relationship between theoretically predicted and delivered volume. This result held true not only across different setups (\textit{PumpA} \textit{vs.} \textit{PumpB}), but also across mounted syringes with distinct dimensions 
+
+
+
+
+
+($10mL$ \textit{vs.} $5mL$) \ref{fig:SingleStepCalibration}-b,c. Finally, while the spread of single trial delivered volumes grew with theoretically calculated values, its coefficient of variation (standard deviation normalized by the mean) remained relatively stable in all conditions \ref{fig:SingleStepCalibration}-d,e.
+
 
 \begin{figure}
 	\centering
@@ -35,7 +52,6 @@ On top of providing a proxy measurement of single-trial delivered amount, our ch
 
 
 After characterizing the small-bolus delivery capabilities of the system, we decided to follow a typical, and more experimentally amenable, calibration protocol. Measuring single small-volume delivery events presents a technical challenge in that equipment capable of reliably measuring such small amounts is rarely available. As a result, experimenters rely on measuring the outcome of several hundred repeats of the same protocol. While this strategy effectively blinds the researcher to inter-protocol variability, it allows the measurement of larger volumes, with smaller systematic errors, and thus the estimation of an average single-protocol delivery volume. Following such a protocol (see \ref{s:methods}), we demonstrate how calibration curves can be obtained from the setup, as well as validate the theoretically predicted amount of delivered volume calculated from the physical specifications of the system \ref{fig:LargeVolumeCalibration}. As predicted, both the quality  ($R^2$), and the slope ($\beta$), of the linear fit highlight the high-quality match between expected and measured volumes \ref{fig:LargeVolumeCalibration}a. Despite not being stable throughout the full range of probed delivered volumes, the coefficient of variation that results from measurements of this method is strikingly low \ref{fig:LargeVolumeCalibration}b. As a result, we strongly incentivize experiments to routinely adopt this calibration protocol.
-
 
 \begin{figure}[ht] 
 	\centering
