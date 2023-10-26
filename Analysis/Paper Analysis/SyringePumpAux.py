@@ -8,7 +8,7 @@ import matplotlib as mpl
 from pathlib import Path
 from scipy import stats
 
-figureTargetFolder = Path(r"C:\Users\bfpcr\Documents\device.pump\Exp_Data&Code\AnalysisCode\Figures")
+figureTargetFolder = Path(r"C:\Users\bruno.cruz\Downloads\ExperimentalData\Figures")
 def saveFigure(fig, title = None, rootSaveFolder = figureTargetFolder):
     if title is None:
         title = fig.gca().get_title()
