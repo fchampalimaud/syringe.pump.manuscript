@@ -1,32 +1,16 @@
-\subsection*{Sub-microlitre delivery benchmarking}
+\subsection*{Benchmarking sub-microliter delivery}
 
-Given the common reliance of experimental neuroscience on the delivery of small, microlitre range, liquid volumes, we sought to first benchmark how our system behaves in this regime. Since single, small volume, events are experimentally challenging to accurately measure, other systems have relied on inferring, from a large number of repetitions, the average predicted volume of a single bolus. Despite being straightforward, such a method will nevertheless be blind to trial variability, any important metric when considering psychophysical animal experiments. With this in mind, we characterized the single-trial responses of our system by developing a quantitative, computer-vision-based, assay that can provide a metric of such variability \ref{fig:PumpProtocol}. Briefly, our method relies on the videography of a small-diameter glass capillary with well-characterized, and reproducible, dimensions. By adding small amounts of food colouring to the fluid, we can reliably segment the area of the glass filled with liquid and, by assuming $Area_{pixels} \propto Volume_{mL}$, using it as a linear proxy for delivered volume. 
+Given the common reliance of experimental neuroscience on the delivery of small liquid volumes, we sought to first benchmark how our system performs in this regime. Single small-volume events are experimentally challenging to accurately measure. Other systems have relied on inferring the average predicted volume of a single bolus, from repeated measures. Despite straightforward, such method cannot resolve trial-to-trial variability. With this in mind, we developed a quantitative computer-vision-based assay, that can provide a metric of such variability \ref{fig:PumpProtocol}. Our methods relies on the videography of a small-diameter glass capillary with well-characterized and reproducible dimensions. By adding small amounts of food colouring to the fluid, we can reliably segment the area of the glass filled with liquid. Assuming $Area_{pixels} \propto Volume_{mL}$, we can use it as a linear proxy for delivered volume. 
 
 \begin{figure} 
 	\centering
 	\includegraphics[width=1.0\linewidth]{Figures/Artboard 1_1.pdf}
 	\caption{\textbf{Tracking small single-bolus events.}\\
-		(\textbf{a}) Schematic of the computer vision algorithm followed to measure small, microlitre range, volumes. Briefly, from top to bottom, we cropped, thresholded, and segmented the area of the capillary filled with liquid. We took its area as a proxy of delivered volume. (See \hyperref[s:methods]{Methods} for further details)  \textbf{b}) Example trace of the measured area in A), as a function of time during one of the experiments. Red vertical dashed lines represent liquid delivery events.}
-	\label{fig:PumpProtocol} 
+		(\textbf{a}) Schematic of the computer vision algorithm for measuring small microliter-range volumes. From top to bottom: cropped, thresholded, and segmented the area of the capillary filled with liquid. Area was taken as a proxy of delivered volume. (See \hyperref[s:methods]{Methods} for further details)  \textbf{b}) Example trace of the measured area in A), as a function of time during one of the experiments. Red vertical dashed lines represent liquid delivery events.}
+	\label{fig:PumpProtocol}  
 \end{figure}
 
-Using this approach, we picked four distinct liquid volumes, in a range relevant to rodent behaviour experiments 
-
-
-(0.33$\mu L$ - 10$\mu L$).
-
-
-
- We calculated, based on the mechanical specifications of our system and mounted syringe models, the number of steps expected to achieve such volumes. Next, using the videography data, we constructed a "protocol-onset triggered"
-
-
- trace that can be used to quantify single-trial total delivered volume (during the stable phase of the trace), as well as its fluid kinetics \ref{fig:SingleStepCalibration}-a. Our procedure is thus able to provide an estimate of variability across single delivery protocols, on top of revealing a close linear relationship between theoretically predicted and delivered volume. This result held true not only across different setups (\textit{PumpA} \textit{vs.} \textit{PumpB}), but also across mounted syringes with distinct dimensions 
-
-
-
-
-
-($10mL$ \textit{vs.} $5mL$) \ref{fig:SingleStepCalibration}-b,c. Finally, while the spread of single trial delivered volumes grew with theoretically calculated values, its coefficient of variation (standard deviation normalized by the mean) remained relatively stable in all conditions \ref{fig:SingleStepCalibration}-d,e.
+Using this approach, we picked four distinct liquid volumes, in a range relevant to rodent behaviour experiments (0.33 $\mu L$ - 10 $\mu L$). We calculated, based on the mechanical specifications of our system and mounted syringe models, the number of steps expected to achieve such volumes. Next, using the videography data, we constructed a "protocol-onset triggered" trace that can be used to quantify single-trial total delivered volume (during the stable phase of the trace), as well as its fluid kinetics \ref{fig:SingleStepCalibration}-a. Our procedure is thus able to provide an estimate of variability across single delivery protocols, on top of revealing a close linear relationship between theoretically predicted and delivered volume. This result held true not only across different setups (\textit{PumpA} \textit{vs.} \textit{PumpB}), but also across mounted syringes with distinct dimensions (10 $mL$ \textit{vs.} 5 $mL$) \ref{fig:SingleStepCalibration}-b,c. Finally, while the spread of single trial delivered volumes grew with theoretically calculated values, its coefficient of variation (standard deviation normalized by the mean) remained relatively stable in all conditions \ref{fig:SingleStepCalibration}-d,e.
 
 
 \begin{figure}
