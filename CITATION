@@ -1,0 +1,12 @@
+@article {Cruz2024.04.27.590287,
+	author = {Bruno F. Cruz and Paulo Carrico and Luis Teixeira and Sofia Freitas and Filipe Mendes and Dario Bento and Artur Silva},
+	title = {A flexible fluid delivery system for rodent behavior experiments},
+	elocation-id = {2024.04.27.590287},
+	year = {2024},
+	doi = {10.1101/2024.04.27.590287},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {Experimental behavioral neuroscience relies on the ability to deliver precise amounts of liquid volumes to animal subjects. Among others, it allows the progressive shaping of behavior through successive, automated, reinforcement, thus allowing training in more demanding behavioral tasks and the manipulation of variables that underlie the decision making process (e.g.: reward magnitude). Here we introduce a stepper-motor-based, fully integrated, open-source solution, that allows the reproducible delivery of small \&lt;1 μL) liquid volumes. The system can be controlled via software using the Harp protocol (e.g.: from Bonsai or Python interfaces), or directly through a low-level I/O interface. Both the control software and electronics are compatible with a wide variety of motor models and mechanical designs. However, we also provide schematics, and step-by-step assembly instructions, for the mechanical design used and characterized in this manuscript. We provide benchmarks of the full integrated system using a computer-vision method capable of measuring across-trial delivery of small volumes, an important metric when having behavior experiments in mind. Finally, we provide experimental validation of our system by employing it in a psychophysics rodent task, and during electrophysiological recordings.Competing Interest StatementThe authors have declared no competing interest.},
+	URL = {https://www.biorxiv.org/content/early/2024/04/29/2024.04.27.590287},
+	eprint = {https://www.biorxiv.org/content/early/2024/04/29/2024.04.27.590287.full.pdf},
+	journal = {bioRxiv}
+}
