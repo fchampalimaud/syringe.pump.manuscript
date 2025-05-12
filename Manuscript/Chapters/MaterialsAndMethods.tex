@@ -5,10 +5,8 @@ The presented syringe pump system is composed of a mechanical assembly, an elect
 The mechanical assembly of the syringe pump was designed to be easily produced and assembled without any particular expertise. All parts necessary for the build are included in the bill of materials. Most parts are readily available off the shelf.
 The few custom parts can be laser-cut, 3d printed or sourced from third-party manufacturers, using the provided designs. The assembly process is documented with step-by-step instructions, including detailed photographs.
 
-In the provided mechanical configuration, we opted for a NEMA 17 Stepper motor (HT17-275 from Applied Motion) due to its high precision and torque rating. Specifically, the combination of motor step resolution (1.8 $\deg$/step) together with a 0.8 mm pitch length driving rod, leads to a theoretical linear resolution of 4 $\mu m$/step, which can be further increased by using step multipliers of up to 1/16.
-To characterize the system, we chose two glass syringes models with total volumes compatible with those routinely used for animal experiments (5 and 10 $mL$, 1000 Series Syringes, Hamilton), leading to a single-full-step theoretical resolution of 0.33 and 0.66 $\mu L / step$.
-
-Nevertheless, the system should be able to be modified to use other syringes or stepper motors with little to no modifications to the provided designs.
+In the provided mechanical configuration, we opted for a NEMA 17 Stepper motor (HT17-275 from Applied Motion) due to its high precision and torque rating. Specifically, the combination of motor step resolution (1.8 $\deg$/step) together with a 0.8 mm pitch length driving rod, leads to a theoretical linear resolution of 4 $\mu m$/step, which can be further increased by using step multipliers of up to 1/16. \textcolor{blue}{\textbf{To characterize the system, we chose two glass syringes models with total volumes compatible with those routinely used for animal experiments (5 and 10 $mL$, 1000 Series Syringes, Hamilton), leading to a single-full-step theoretical resolution of 0.33 and 0.66 $\mu L / step$.
+Nevertheless, the system should be able to be modified to use other syringes or stepper motors with little to no modifications to the provided designs.}}
 
 \subsubsection*{Electronics}
 
@@ -17,8 +15,6 @@ The syringe pump is controlled by a custom-made printed circuit board which is c
 The microprocessor block consists of an ATxmega microprocessor (ATXMEGA128A4U-AU, Microchip Technology) that implements the Harp protocol \url{https://github.com/harp-tech/protocol}, a USB to serial UART interface and a stereo phone jack for temporal synchronization between Harp devices. \textcolor{blue}{\textbf{The Harp protocol is a lightweight binary messaging protocol that enables precise hardware-level timestamping, temporal synchronization with other Harp-compliant devices at acquisition time, easy logging and ingestion \url{https://harp-tech.org/articles/python.html}, and a standard serial communication protocol. Such standard allows the syringe pump to be flexibly controlled externally through the USB interface with any host implementing the Harp API (currently via Bonsai \citep{Lopes2015} or Python \url{https://github.com/harp-tech/pyharp}).}}
 
 The interface circuitry block consists of logic buffers that provide a direct low-level interface with the micro-stepper driver (A4988SETTR-T, Allegro Microsystems) to the user (bypassing the microcontroller block). Moreover, it provides access to the I/O breakout that can be used to trigger protocol delivery with other external, TTL-compatible, devices, supporting input voltages up to 5 V. 
-
-The modularity of the board design affords users the option to assemble a simpler version without the microcontroller block, for applications wherein low-level control is sufficient. This cheaper version is assembled using the same PCB schematic, with minimal changes to the board components, and can be found in an alternative bill of materials provided.
 
 The control system is compatible with other types of bipolar stepper motors with a maximum output drive capacity of 12 V and ±1.7 A.
 
