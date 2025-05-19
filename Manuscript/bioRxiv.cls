@@ -309,10 +309,9 @@
 %% bibliography
 %\RequirePackage{chapterbib} % outside of Overleaf, comment this line
 %\RequirePackage[sectionbib,authoryear,round]{natbib}
-\usepackage{natbib}
-\setlength{\bibsep}{0.0pt}
-\bibliographystyle{unsrtnat}
-%\bibliographystyle{plain}
+\usepackage[round]{natbib}
+\bibliographystyle{plainnat}
+
 \renewcommand{\bibsection}{} % Remove header
 \if@submit
   \renewcommand\bibfont{\normalfont\sffamily\fontsize{9}{10}\selectfont} % set font to be sans serif
@@ -474,11 +473,13 @@
   }}
 
   \def\bBioRXiv{{\footnotesize
-  \footerfont \thepage\hspace{7pt}|
+  %\footerfont \thepage\hspace{7pt}|
+  \footerfont \thepage\hspace{7pt}
   }}
 
   \def\cBioRXiv{{\footnotesize
-  \footerfont |\hspace{7pt}\thepage
+  %\footerfont |\hspace{7pt}\thepage
+  \footerfont \hspace{7pt}\thepage
   }}
 \else
   \def\aBioRXiv{{\footnotesize
@@ -503,13 +504,16 @@
   }}
 
 \def\dAuthor{{\footnotesize
-    \footerfont \@leadauthor\ifnum \value{authors} > 2\hspace{2pt}\textit{et al.}\fi\hspace{7pt}|\hspace{7pt}\@shorttitle
+    %\footerfont \@leadauthor\ifnum \value{authors} > 2\hspace{2pt}\textit{et al.}\fi\hspace{7pt}|\hspace{7pt}\@shorttitle
+    \footerfont 
   }}
 
 
 
 \lfoot[\bBioRXiv]{\dAuthor}
 \rfoot[\dAuthor]{\cBioRXiv}
+
+
 
 \rhead[]{\footnotesize\rightmark}
 \lhead[\footnotesize\leftmark]{}
